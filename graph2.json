@@ -1,0 +1,88 @@
+{
+  "arad": {
+    "timisoara": 118,
+    "zerind": 75,
+    "sibiu": 140
+  },
+  "bucharest": {
+    "giurgiu": 90,
+    "pitesti": 101,
+    "fagaras": 211,
+    "urziceni": 85
+  },
+  "craiova": {
+    "pitesti": 138,
+    "dobreta": 120,
+    "rimnicu vilcea": 146
+  },
+  "dobreta": {
+    "craiova": 120,
+    "mehadia": 75
+  },
+  "eforie": {
+    "hirsova": 86
+  },
+  "fagaras": {
+    "sibiu": 99,
+    "bucharest": 211
+  },
+  "giurgiu": {
+    "bucharest": 90
+  },
+  "hirsova": {
+    "eforie": 86,
+    "urziceni": 98
+  },
+  "iasi": {
+    "neamt": 87,
+    "vaslui": 92
+  },
+  "lugoj": {
+    "timisoara": 111,
+    "mehadia": 70
+  },
+  "mehadia": {
+    "dobreta": 75,
+    "lugoj": 70
+  },
+  "neamt": {
+    "iasi": 87
+  },
+  "oradea": {
+    "zerind": 71,
+    "sibiu": 151
+  },
+  "pitesti": {
+    "craiova": 138,
+    "bucharest": 101,
+    "rimnicu vilcea": 97
+  },
+  "rimnicu vilcea": {
+    "pitesti": 97,
+    "sibiu": 80,
+    "craiova": 146
+  },
+  "sibiu": {
+    "fagaras": 99,
+    "rimnicu vilcea": 80,
+    "arad": 140,
+    "oradea": 151
+  },
+  "timisoara": {
+    "arad": 118,
+    "lugoj": 111
+  },
+  "urziceni": {
+    "bucharest": 85,
+    "hirsova": 98,
+    "vaslui": 142
+  },
+  "vaslui": {
+    "urziceni": 142,
+    "iasi": 92
+  },
+  "zerind": {
+    "arad": 75,
+    "oradea": 71
+  }
+}
