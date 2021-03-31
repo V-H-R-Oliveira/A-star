@@ -23,11 +23,8 @@ def a_star(graph_path: str, heuristics_path: str, begin: str, goal: str):
     visited = [begin]
     total_cost = [0]
     i = 0
-    # debug = 5
 
     while len(queue) != 0:
-        # if i == debug:
-        #     break
         node, value, heuristic, parent = queue.pop(0)
         print(f'[{i}] Current: {node}-{value}-{heuristic}')
 
@@ -41,20 +38,16 @@ def a_star(graph_path: str, heuristics_path: str, begin: str, goal: str):
                 visited[-1] = node
                 total_cost[-1] = value
 
-            print('Finish', visited, total_cost)
             return True, visited, sum(total_cost)
 
         for neighbor in graph[node]:
             if any((neighbor == i[0] for i in queue)):
-                # print(neighbor, 'is in queue')
                 element = list(filter(lambda key: key[0] == neighbor, queue))[0]
                 _, previous_cost, previous_heuristic, _ = element
                 new_cost = graph[node][neighbor] + value
 
                 if new_cost < previous_cost:
                     new_heuristic = new_cost + heuristics[neighbor]
-                    # print(
-                    #     f'Replace {neighbor} previous cost {previous_cost} by {new_cost} and replace the previous heuristic {previous_heuristic} by {new_heuristic}')
                     queue.remove(element)
                     queue.append((neighbor, new_cost, new_heuristic, node))
                     continue
@@ -62,8 +55,6 @@ def a_star(graph_path: str, heuristics_path: str, begin: str, goal: str):
             if neighbor in visited:
                 continue
 
-            # print(neighbor, graph[node][neighbor], heuristics[neighbor], graph[node][neighbor] + heuristics[neighbor],
-            #       value)
             new_cost = graph[node][neighbor] + value
             new_heuristic = new_cost + heuristics[neighbor]
             queue.append((neighbor, new_cost, new_heuristic, node))
@@ -80,20 +71,15 @@ def a_star(graph_path: str, heuristics_path: str, begin: str, goal: str):
     return False, [], 0
 
 
-def main():
-    start = 'arad'
-    goal = 'bucharest'
-
-    # start = 'S'
-    # goal = 'E'
-    has_path, path, cost = a_star('graph2.json', 'heuristics2.json', start, goal)
+def main(graph_path: str, heuristics_path: str, start: str, goal: str):
+    has_path, path, cost = a_star(graph_path, heuristics_path, start, goal)
 
     if not has_path:
-        print(f'Não existe um caminho válido entre {start} e {goal}')
+        print(f'Não existe um caminho válido entre {start} e {goal}.', file=stderr)
         return
 
-    print(f"Melhor caminho entre {start} e {goal}: {'->'.join(path)}\nCusto: {cost} unidades de distância")
+    print(f"Melhor caminho entre {start} e {goal}: {'->'.join(path)}\nCusto: {cost} unidades de distância.")
 
 
 if __name__ == '__main__':
-    main()
+    main('graph.json', 'heuristics.json', 'S', 'E')
